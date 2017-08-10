@@ -1,0 +1,211 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="prism.css" />
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="font-awesome.min.css" />
+
+<style>
+	body {
+		"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	}
+	p {
+		font-size: 18pt;
+	}
+	p.practice {
+		font-size: 15pt;
+	}
+	p.title {
+		font-size: 21pt;
+	}
+	ul {
+		font-size: 15pt;
+	}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-1 column">
+		</div>
+		<div class="col-md-10 column">
+			<!-- title -->
+			<div class="page-header" style="text-align: center;">
+				<h1>
+					第一课 <small>信息量，单位及其换算，二进制和十六进制</small>
+				</h1>
+			</div>
+			<!-- blockquote -->
+			<blockquote>
+				<p>Learning without thought means labour lost; thought without learning is perilous.</p><small><cite>Confucius</cite></small>
+			</blockquote>
+			<!-- progress bar -->
+			<div class="progress progress-striped active">
+				<div class="progress-bar progress-success progress-bar-success" style="width:80%">
+				</div>
+			</div>
+			<p class="text-left title">1. 概率与信息量</p>
+			<p class="text-left">若概率值为<b><i>P</i></b>，信息量为<b><i>I</i></b>，则有关系式：</p>
+			<p class="text-center"><b><i>I</i></b>&nbsp;=&nbsp;log(1 / <b><i>P</i></b>) 或 <b><i>I</i></b>&nbsp;=&nbsp;-log(<b><i>P</i></b>)
+			<p class="text-left">当计算log时，如果以2为底，则信息量的单位是比特（bit）</p>
+			<p class="text-left">例如掷一个均匀的六面体色子，我们假设：<br><b>事件A</b>：点数为1<br><b>事件B</b>：点数为2或3<br><b>事件C</b>：点数大于等于4<br>则我们可以计算出各个事件的信息量，如表所示：</p>
+			<!-- table -->
+			<div style="width: 60%; text-align:center; margin-left: auto; margin-right: auto;">
+			<table class="table table-bordered table-hover" style="width: auto;">
+				<thead>
+					<tr class="success">
+						<th>事件名称</th>
+						<th>概率<b><i>P</i></b></th>
+						<th>信息量<b><i>I</i></b>的计算公式</th>
+						<th>信息量<b><i>I</i></b>的值 (bit)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>事件A</td>
+						<td>1&nbsp;/&nbsp;6</td>
+						<td>log(6)</td>
+						<td>2.58</td>
+					</tr>
+					<tr class="warning">
+						<td>事件B</td>
+						<td>1&nbsp;/&nbsp;3</td>
+						<td>log(3)</td>
+						<td>1.58</td>
+					</tr>
+					<tr>
+						<td>事件C</td>
+						<td>1&nbsp;/&nbsp;2</td>
+						<td>log(2)</td>
+						<td>1</td>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- end table -->
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">练习：假设明天下雨的概率为0.1，则现在“明天下雨”所提供的信息量为多少？（保留2为小数）</p>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input1" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit1" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+			<br>
+			<p class="text-left title">2. 信息量的单位及其换算</p>
+			<p class="text-left">现有一个盒子，其内部有1/2的概率存储着物体（用1表示），有1/2的概率是空的（用0表示），无论其是否存储物体，其均提供1bit的信息量。倘若这样的盒子的个数增加到<b><i>N</i></b>，则一共提供<b><i>N</i></b>bit的信息量。所以一般地，我们也可以用“容量”来表示“所提供信息量之和”这样的概念。</p>
+			<p class="text-left">不同的信息量的单位及其换算，估计如下表所示：</p>
+			<!-- table -->
+			<div style="width: 80%; text-align:center; margin-left: auto; margin-right: auto;">
+			<table class="table table-bordered table-hover" style="width: auto;">
+				<thead>
+					<tr class="success">
+						<th>信息量单位</th>
+						<th>英文</th>
+						<th>缩写</th>
+						<th>换算关系</th>
+						<th>值估计</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>比特</th>
+						<th>bit</th>
+						<th>b</th>
+						<th>-</th>
+						<th>-</th>
+					</tr>
+					<tr>
+						<th>字节</th>
+						<th>byte</th>
+						<th>B</th>
+						<th>1 byte = 8 bit</th>
+						<th>-</th>
+					</tr>
+					<tr>
+						<th>字</th>
+						<th>word</th>
+						<th>-</th>
+						<th>1 word = 2 byte</th>
+						<th>-</th>
+					</tr>
+					<tr>
+						<th>双字</th>
+						<th>double word</th>
+						<th>dword</th>
+						<th>1 dword = 4 byte</th>
+						<th>-</th>
+					</tr>
+					<tr>
+						<th>千字节</th>
+						<th>kilobyte</th>
+						<th>KB</th>
+						<th>1 KB = 1024 byte</th>
+						<th>一个word文档的大小大约是几十到几百KB</th>
+					</tr>
+					<tr>
+						<th>兆字节</th>
+						<th>million byte</th>
+						<th>MB/M</th>
+						<th>1 MB = 1024 KB</th>
+						<th>一个MP3文件的大小大约是3到10MB</th>
+					</tr>
+					<tr>
+						<th>-</th>
+						<th>gigabyte</th>
+						<th>GB/G</th>
+						<th>1 GB = 1024 MB</th>
+						<th>一部电影大小大约是1到5GB</th>
+					</tr>
+					<tr>
+						<th>-</th>
+						<th>terabyte</th>
+						<th>TB/T</th>
+						<th>1 TB = 1024 GB</th>
+						<th>计算机硬盘大小大约是0.5到1TB</th>
+					</tr>
+					<tr>
+						<th>-</th>
+						<th>petabyte</th>
+						<th>PB/P</th>
+						<th>1 PB = 1024 TB</th>
+						<th>-</th>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- end table -->
+			<p class="text-left title">3. 内存与外存</p>
+			<p class="text-left">计算机的内存与外存即相当于上面所说的“盒子”，其内部存储这0或者1。这些盒子非常多，以至于形成了一个“盒子大厦”。内存的硬件形式即为“内存条”，外存的硬件形式即为“磁盘/硬盘”。可以这样简单地理解：在程序中定义的变量（如<code class="language-C" style="font-size:12pt">int a = 0</code>）存储再内存中，文件存储再外存中。内存与外存的主要区别为：</p>
+			<!-- listgroup -->
+			<ul class="list-group">
+				<li class="list-group-item">内存容量小（一般个人电脑为2G/4G/8G不等），外存容量大（一般个人电脑为0.5T/1T/2T不等）；</li>
+				<li class="list-group-item">内存读写速度快，外存读写速度慢（想象一下大文件的复制）；</li>
+				<li class="list-group-item">内存数据断电则丢失，外存数据断电不丢失。</li>
+			</ul>
+			<p class="text-left title">4. 二进制与十六进制</p>
+		</div>
+		<div class="col-md-1 column">
+		</div>
+	</div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+<!--
+<pre class="line-numbers">
+<code class="language-C">#include &lt;stdio.h&gt;
+// this is my first program
+int main() {
+	printf("hello world\n");
+	return 0;
+}</code>
+</pre>
+-->
+</body>
+</html>
+<script src="prism.js"></script>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
