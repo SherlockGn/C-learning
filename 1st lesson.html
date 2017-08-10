@@ -42,7 +42,7 @@
 			</blockquote>
 			<!-- progress bar -->
 			<div class="progress progress-striped active">
-				<div class="progress-bar progress-success progress-bar-success" style="width:80%">
+				<div class="progress-bar progress-success progress-bar-success" id="bar" style="width:80%">
 				</div>
 			</div>
 			<p class="text-left title">1. 概率与信息量</p>
@@ -119,7 +119,7 @@
 						<th>-</th>
 						<th>-</th>
 					</tr>
-					<tr>
+					<tr class="warning">
 						<th>字节</th>
 						<th>byte</th>
 						<th>B</th>
@@ -133,7 +133,7 @@
 						<th>1 word = 2 byte</th>
 						<th>-</th>
 					</tr>
-					<tr>
+					<tr class="warning">
 						<th>双字</th>
 						<th>double word</th>
 						<th>dword</th>
@@ -147,7 +147,7 @@
 						<th>1 KB = 1024 byte</th>
 						<th>一个word文档的大小大约是几十到几百KB</th>
 					</tr>
-					<tr>
+					<tr class="warning">
 						<th>兆字节</th>
 						<th>million byte</th>
 						<th>MB/M</th>
@@ -161,7 +161,7 @@
 						<th>1 GB = 1024 MB</th>
 						<th>一部电影大小大约是1到5GB</th>
 					</tr>
-					<tr>
+					<tr class="warning">
 						<th>-</th>
 						<th>terabyte</th>
 						<th>TB/T</th>
@@ -187,6 +187,110 @@
 				<li class="list-group-item">内存数据断电则丢失，外存数据断电不丢失。</li>
 			</ul>
 			<p class="text-left title">4. 二进制与十六进制</p>
+			<p class="text-left">二进制（binary），即逢二进一。而我们生活中采用的数制为十进制（decimal），即逢十进一。二进制只有0和1组成，适合计算机存储。</p>
+			<p class="text-left">很容易写出二进制的序列：0，1，10，11，100，101，110，111，1000，……</p>
+			<p class="text-left">一个二进制字符所提供的信息量为1bit。</p>
+			<p class="text-left">十六进制（hexadecimal），即逢十六进一。利用英文字母A，B，C，D，E（大小写均可）分别代表十进制的10，11，12，13，14，15。其中，十六进制是二进制的简写形式，每四个二进制字符可以用一个十六进制字符进行简写，一个十六进制字符所提供的信息量为4bit。</p>
+			<p class="text-left">0到15的二进制-十进制-十六进制的转换需要熟练记忆。</p>
+			<!-- table -->
+			<div style="width: 40%; text-align:center; margin-left: auto; margin-right: auto;">
+			<table class="table table-condensed table-bordered table-hover" style="width: auto;">
+				<thead>
+					<tr class="success">
+						<th>十进制</th><th>二进制（4bit）</th><th>十六进制</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>0</th><th>0000</th><th>0</th>
+					</tr>
+					<tr class="warning">
+						<th>1</th><th>0001</th><th>1</th>
+					</tr>
+					<tr>
+						<th>2</th><th>0010</th><th>2</th>
+					</tr>
+					<tr class="warning">
+						<th>3</th><th>0011</th><th>3</th>
+					</tr>
+					<tr>
+						<th>4</th><th>0100</th><th>4</th>
+					</tr>
+					<tr class="warning">
+						<th>5</th><th>0101</th><th>5</th>
+					</tr>
+					<tr>
+						<th>6</th><th>0110</th><th>6</th>
+					</tr>
+					<tr class="warning">
+						<th>7</th><th>0111</th><th>7</th>
+					</tr>
+					<tr>
+						<th>8</th><th>1000</th><th>8</th>
+					</tr>
+					<tr class="warning">
+						<th>9</th><th>1001</th><th>9</th>
+					</tr>
+					<tr>
+						<th>10</th><th>1010</th><th>A</th>
+					</tr>
+					<tr class="warning">
+						<th>11</th><th>1011</th><th>B</th>
+					</tr>
+					<tr>
+						<th>12</th><th>1100</th><th>C</th>
+					</tr>
+					<tr class="warning">
+						<th>13</th><th>1101</th><th>D</th>
+					</tr>
+					<tr>
+						<th>14</th><th>1110</th><th>E</th>
+					</tr>
+					<tr class="warning">
+						<th>15</th><th>1111</th><th>F</th>
+					</tr>
+					<tr class="danger">
+						<th>16</th><th>00010000</th><th>10</th>
+					</tr>
+					<tr>
+						<th style="text-align:center" colspan="3">……</th>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- end table -->
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">练习：将二进制1101101010001转换成十六进制</p>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input2" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit2" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+			<p class="text-left title">5. 每课一题</p>
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">写出下面程序的运行结果</p>
+					<pre class="line-numbers">
+<code class="language-C">#include &lt;stdio.h&gt;
+// this is my first program
+int main() {
+	printf("hello world\n");
+	return 0;
+}</code>
+					</pre>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input3" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit3" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
 		</div>
 		<div class="col-md-1 column">
 		</div>
@@ -194,18 +298,53 @@
 </div>
 
 <br><br><br><br><br><br><br><br>
-<!--
-<pre class="line-numbers">
-<code class="language-C">#include &lt;stdio.h&gt;
-// this is my first program
-int main() {
-	printf("hello world\n");
-	return 0;
-}</code>
-</pre>
--->
 </body>
 </html>
 <script src="prism.js"></script>
 <script src="jquery.min.js"></script>
 <script src="bootstrap.min.js"></script>
+
+<script>
+var problems = [
+	{p: "input1", b: "submit1", a: ["3.32"]},
+	{p: "input2", b: "submit2", a: ["1B51"]},
+	{p: "input3", b: "submit3", a: ["hello world"]}
+];
+var processBar = "bar";
+
+(function() {
+	var pts = [];
+	var barObj = $('#' + processBar);
+	var inputObjs = [], buttonObjs = [], answerObjs = [];
+	var size = problems.length;
+	barObj.css("width", "0");
+	for(var i = 0; i < size; i++)
+		pts.push(false);
+	for(var i = 0; i < size; i++) {
+		$('#' + problems[i].b).click(function() {
+			var thisButton = $(this);
+			var id = -1;
+			for(var j = 0; j < size; j++)
+				if(thisButton.attr("id") === problems[j].b) { id = j; break; }
+			var answers = problems[id].a, answer = $("#" + problems[id].p).val();
+			var success = false;
+			for(var j = 0; j < answers.length; j++)
+				if(answer === answers[j]) { success = true; break; }
+			var btnObj = $('#' + problems[id].b);
+			if(success === true) {
+				btnObj.attr("class", "btn btn-success");
+			}
+			else btnObj.attr("class", "btn btn-danger");
+			if(pts[id] !== success) {
+				// refresh processBar
+				pts[id] = success;
+				var count = 0;
+				for(var j = 0; j < size; j++)
+					if(pts[j] === true) count++;
+				var process = count * 100.0 / size;
+				barObj.css("width", process + "%");
+			}
+		});
+	}
+})();
+</script>
