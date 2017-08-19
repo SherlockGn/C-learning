@@ -1,0 +1,362 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="prism.css" />
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="font-awesome.min.css" />
+
+<style>
+	body {
+		"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	}
+	p {
+		font-size: 18pt;
+	}
+	p.practice {
+		font-size: 15pt;
+	}
+	p.title {
+		font-size: 21pt;
+	}
+	ul {
+		font-size: 15pt;
+	}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-1 column">
+		</div>
+		<div class="col-md-10 column">
+			<!-- title -->
+			<div class="page-header" style="text-align: center;">
+				<h1>
+					第二课 <small>进制转换</small>
+				</h1>
+			</div>
+			<!-- blockquote -->
+			<blockquote>
+				<p>Isn't it pleasant to learn with a constant perseverance and application?</p><small><cite>Confucius</cite></small>
+			</blockquote>
+			<!-- progress bar -->
+			<div class="progress progress-striped active">
+				<div class="progress-bar progress-success progress-bar-success" id="bar" style="width:80%">
+				</div>
+			</div>
+			<p class="text-left title">1. 二进制转十进制：按权求和法</p>
+			<p class="text-left">对于任意一个十进制数来说，其每一位数字所占有的权是不同的。例如三位数245，末尾的5代表5个1，十位的4代表4个10，百位的2代表2个100。一般地，我们将一个数<i>n</i>的最末尾（低位）标记索引(index)为0，倒数第二位为1，……往高位依次递增。则<i>k</i>进制索引为<i>i</i>的位数所占的权重为<i>k<sup>i</sup></i>。设索引为<i>i</i>的位数所在的数字为<i>a<sub>i</sub></i>，则该数<i>n</i>可以由以下公式计算：</p>
+			<p class="text-center"><i>n</i>&nbsp;=&nbsp;&sum; <i>a<sub>i</sub></i> &times; <i>k<sup>i</sup></i></p>
+			<p class="text-left">其中，<i>i</i>的取值范围是0到<i>t</i> - 1，<i>t</i>是这个数字的总位数（上例中为3）。</p>
+			<p class="text-left">以245为例，下表表示了按权求和的详细过程。</p>
+			<!-- table -->
+			<div style="width: 40%; text-align:center; margin-left: auto; margin-right: auto;">
+			<table class="table table-bordered table-hover" style="width: auto;">
+				<thead>
+					<tr class="success">
+						<th>数字的每一位</th>
+						<th>索引</th>
+						<th>权重</th>
+						<th>数字&times;权重</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2</td>
+						<td>2</td>
+						<td>10<sup>2</sup></td>
+						<td>2&times;10<sup>2</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>4</td>
+						<td>1</td>
+						<td>10<sup>1</sup></td>
+						<td>4&times;10<sup>1</sup></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>0</td>
+						<td>10<sup>0</sup></td>
+						<td>5&times;10<sup>0</sup></td>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- end table -->
+			<p class="text-left">对表格最后一列的三个数字求和，即得到该数本身：245。这就是所谓的按权求和法。</p>
+			<p class="text-left">十进制数字是如此，二进制数字亦是如此。</p>
+			<p class="text-left">以二进制数字1010110101为例，下表展示了按权求和法的详细过程。</p>
+			<!-- table -->
+			<div style="width: 40%; text-align:center; margin-left: auto; margin-right: auto;">
+			<table class="table table-bordered table-hover" style="width: auto;">
+				<thead>
+					<tr class="success">
+						<th>数字的每一位</th>
+						<th>索引</th>
+						<th>权重</th>
+						<th>数字&times;权重</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>9</td>
+						<td>2<sup>9</sup></td>
+						<td>1&times;2<sup>9</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>0</td>
+						<td>8</td>
+						<td>2<sup>8</sup></td>
+						<td>0&times;2<sup>8</sup></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>7</td>
+						<td>2<sup>7</sup></td>
+						<td>1&times;2<sup>7</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>0</td>
+						<td>6</td>
+						<td>2<sup>6</sup></td>
+						<td>0&times;2<sup>6</sup></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>5</td>
+						<td>2<sup>5</sup></td>
+						<td>1&times;2<sup>5</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>1</td>
+						<td>4</td>
+						<td>2<sup>4</sup></td>
+						<td>1&times;2<sup>4</sup></td>
+					</tr>
+					<tr>
+						<td>0</td>
+						<td>3</td>
+						<td>2<sup>3</sup></td>
+						<td>0&times;2<sup>3</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>1</td>
+						<td>2</td>
+						<td>2<sup>2</sup></td>
+						<td>1&times;2<sup>2</sup></td>
+					</tr>
+					<tr>
+						<td>0</td>
+						<td>1</td>
+						<td>2<sup>1</sup></td>
+						<td>0&times;2<sup>1</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>1</td>
+						<td>0</td>
+						<td>2<sup>0</sup></td>
+						<td>1&times;2<sup>0</sup></td>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- end table -->
+			<p class="text-left">对最右列求和，即得到了该数为2<sup>0</sup>+2<sup>2</sup>+2<sup>4</sup>+2<sup>5</sup>+2<sup>7</sup>+2<sup>9</sup>=1+4+16+32+128+512=693。</p>
+			<p class="text-left">当然，先将其化成十六进制，再转化为十进制也不失为一种有效的方法。</p>
+			<p class="text-left">以二进制数字1010110101为例，其十六进制数值为2b5，下表展示了十六进制按权求和法的详细过程。</p>
+				<!-- table -->
+			<div style="width: 40%; text-align:center; margin-left: auto; margin-right: auto;">
+			<table class="table table-bordered table-hover" style="width: auto;">
+				<thead>
+					<tr class="success">
+						<th>数字的每一位</th>
+						<th>索引</th>
+						<th>权重</th>
+						<th>数字&times;权重</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2</td>
+						<td>2</td>
+						<td>16<sup>2</sup></td>
+						<td>2&times;16<sup>2</sup></td>
+					</tr>
+					<tr class="warning">
+						<td>b (11)</td>
+						<td>1</td>
+						<td>16<sup>1</sup></td>
+						<td>11&times;16<sup>1</sup></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>0</td>
+						<td>16<sup>0</sup></td>
+						<td>5&times;16<sup>0</sup></td>
+					</tr>
+				</tbody>
+			</table>
+			</div><!-- end table -->
+			<p class="text-left">对最右列求和，即得到了该数为5&times;16<sup>0</sup>+11&times;16<sup>1</sup>+2&times;16<sup>2</sup>=5+176+512=693。</p>
+			<p class="text-left"><b>同解！</b></p>
+			
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">练习：二进制数‭1100111011‬化为十进制数是多少呢？尝试使用两种方法解答吧。(827)</p>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input1" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit1" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">练习：七进制数‭65203化为十进制数是多少呢？(16222)</p>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input2" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit2" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+			
+			<br>
+			<p class="text-left title">2. 十进制转二进制：目测法，除二倒序取余法</p>
+			<p class="text-left">十进制转二进制运算是上面运算的逆运算，对于不太大的数字，我们采用“目测-减法”的方法即可。</p>
+			<p class="text-left">例：将73化为二进制数字。</p>
+			<p class="text-left">目测可得：73 = 64 + (9) = 64 + 8 + 1 = 2<sup>6</sup> + 2<sup>3</sup> + 2<sup>0</sup>，所以73所表示的二进制数对应索引为0，3，6有值为1，其他索引对应的值均为0。所以其二进制为1001001。</p>
+			<p class="text-left">当然，该方法的计算量较大，我们有其他稍为方便的方法。首先想想如何分离十进制数字245。</p>
+			<p class="text-left">首先想想如何获取末尾的5。很简单，245除以10，取余数就可以了。（我们一般称除以<i>x</i>并取其余数的操作为模，或者mod，上面的说法等价于245模10。）取到5之后，如何在245中将5去掉呢？很简单，整除10就可以了。所以，我们利用245除以10，得到了两个部分：<br>(1) 商24，用来之后取4用的；<br>(2) 余数5，即最后一位数字。</p>
+			<p class="text-left">重复以上的方法，我们即可分离得到3个数字5，4，2。倒过来写，记得到了原来的数字245。二进制亦是如此。</p>
+			<p class="text-left">对于十进制数字245，我们将：
+				<br>(1) 245除以2，得到122余1；
+				<br>(2) 122除以2，得到61余0；
+				<br>(3) 61除以2，得到30余1；
+				<br>(4) 30除以2，得到15余0；
+				<br>(5) 15除以2，得到7余1；
+				<br>(6) 7除以2，得到3余1；
+				<br>(7) 3除以2，得到1余1；
+				<br>(8) 1除以2，得到0余1；
+			</p>
+			<p class="text-left">一旦商为0，那就不需要接着往下做了。我们返回来取其余数，即得到二进制数字11110101。这就是“除二倒序取余法”。</p>
+			<p class="text-left">一般地，我们采用“竖式”来进行“除二倒序取余法”。下图表示了将十进制97数字转为二进制数的过程。</p>
+			<!-- img -->
+			<div class="col-md-12 column" style="vertical-align: middle; display: table-cell; text-align: center;">
+				<img alt="140x140" src="pics\2nd-pic1.png" class="img-thumbnail"/>
+			</div>
+			<p>将十进制转化为其他进制也是相同的原理，这里不再赘述。</p>
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">练习：十进制数845转化为二进制数是多少呢？（00‭1101001101‬）</p>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input3" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit3" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">练习：八进制数721转化为六进制数是多少呢？（2053）</p>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input4" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit4" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+			<p class="text-left title">5. 每课一题</p>
+			<!-- practice panel -->
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p class="text-left practice">写出下面程序的运行结果</p>
+					<pre class="line-numbers">
+<code class="language-C">#include &lt;stdio.h&gt;
+/* be careful for those stupid errors */
+int main() {
+	double a = 1/1 + 1/2 + 1/3;
+	int b = 2;
+	if(b = 7) {
+		printf("%g %d\n", a, b);
+	} else {
+		printf("%g\n", a);
+	}
+	return 0;
+}</code>
+					</pre>
+					<div class="input-group" style="width: 50%;">
+						<input type="text" class="form-control" id="input5" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" id="submit5" type="button">提交</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1 column">
+		</div>
+	</div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>
+<script src="prism.js"></script>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+
+<script>
+var problems = [
+	{p: "input1", b: "submit1", a: ["827"]},
+	{p: "input2", b: "submit2", a: ["16222"]},
+	{p: "input3", b: "submit3", a: ["00‭1101001101", "1101001101"]},
+	{p: "input4", b: "submit4", a: ["2053"]},
+	{p: "input5", b: "submit5", a: ["1 7"]}
+];
+var processBar = "bar";
+
+(function() {
+	var pts = [];
+	var barObj = $('#' + processBar);
+	var inputObjs = [], buttonObjs = [], answerObjs = [];
+	var size = problems.length;
+	barObj.css("width", "0");
+	for(var i = 0; i < size; i++)
+		pts.push(false);
+	for(var i = 0; i < size; i++) {
+		$('#' + problems[i].b).click(function() {
+			var thisButton = $(this);
+			var id = -1;
+			for(var j = 0; j < size; j++)
+				if(thisButton.attr("id") === problems[j].b) { id = j; break; }
+			var answers = problems[id].a, answer = $("#" + problems[id].p).val();
+			var success = false;
+			for(var j = 0; j < answers.length; j++)
+				if(answer === answers[j]) { success = true; break; }
+			var btnObj = $('#' + problems[id].b);
+			if(success === true) {
+				btnObj.attr("class", "btn btn-success");
+			}
+			else btnObj.attr("class", "btn btn-danger");
+			if(pts[id] !== success) {
+				// refresh processBar
+				pts[id] = success;
+				var count = 0;
+				for(var j = 0; j < size; j++)
+					if(pts[j] === true) count++;
+				var process = count * 100.0 / size;
+				barObj.css("width", process + "%");
+			}
+		});
+	}
+})();
+</script>
